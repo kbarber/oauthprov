@@ -1,4 +1,6 @@
 class OauthToken < ActiveRecord::Base
+  attr_accessor :expires_at
+
   belongs_to :client_application
   belongs_to :user
   validates_uniqueness_of :token

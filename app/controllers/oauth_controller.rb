@@ -2,6 +2,8 @@ require 'oauth/controllers/provider_controller'
 class OauthController < ApplicationController
   include OAuth::Controllers::ProviderController
 
+  alias :login_required :authenticate_user!
+
   protected
   # Override this to match your authorization page form
   # It currently expects a checkbox called authorize

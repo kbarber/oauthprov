@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation
+
+  has_many :client_applications
+  has_many :tokens, :class_name => "Oauth2Token",
+    :order => "authorized_at desc", :include => [:client_application]
 end
